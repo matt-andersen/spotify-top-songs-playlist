@@ -32,7 +32,7 @@ var app = express();
 
 var playlistId;
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/html'))
     .use(cors())
     .use(cookieParser());
 
@@ -42,7 +42,7 @@ app.get('/login', function (req, res) {
     res.cookie(stateKey, state);
 
     // your application requests authorization
-    var scope = 'playlist-modify-public user-top-read';
+    var scope = 'playlist-modify-html user-top-read';
     res.redirect('https://accounts.spotify.com/authorize?' +
         querystring.stringify({
             response_type: 'code',
