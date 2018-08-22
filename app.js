@@ -9,7 +9,7 @@ var client_id = 'CLIENT ID'; // Your client id
 var client_secret = 'CLIENT SECRET'; // Your secret
 var redirect_uri = 'REDIRECT URL'; // Your redirect uri
 
-var siteUrl = "http://104.196.252.233/";
+var siteUrl = "http://35.233.241.108/";
 
 /**
  * Generates a random string containing numbers and letters
@@ -110,8 +110,9 @@ app.get('/callback', function (req, res) {
     }
 });
 
-console.log('Listening on 8888');
-app.listen("80");
+let portNum = 8080;
+console.log('Listening on ' + portNum);
+app.listen(portNum);
 
 function createPlaylist(body, access_token) {
     let jsonData = {
