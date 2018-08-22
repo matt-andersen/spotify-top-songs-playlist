@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <title>Spotify Top Songs Playlist</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+        #login, #loggedin {
+            display: none;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #button-wrapper {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div id="login">
+        <h1>Log in to generate your playlist</h1>
+        <div id="button-wrapper">
+            <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+        </div>
+    </div>
+    <div id="loggedin">
+        <h1 id="user-note"></h1>
+    </div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+    (function () {
+        /**
+         * Obtains playlist ID from the URL
+         * @return Object
+         */
+        function getLoggedInUser() {
+            return window.location.hash.substring(1);
+        }
+
+        let userNote = document.getElementById('user-note');
+
+        let loggedInUser = getLoggedInUser();
+
+        if (loggedInUser) {
+            userNote.innerHTML = "Hi " + loggedInUser + ", open Spotify to view your playlist";
+            $('#login').hide();
+            $('#loggedin').show();
+        } else {
+            // render initial screen
+            $('#login').show();
+            $('#loggedin').hide();
+        }
+    })();
+</script>
+</body>
+</html>
+
