@@ -111,7 +111,7 @@ app.get('/callback', function (req, res) {
 });
 
 console.log('Listening on 8888');
-app.listen(8888);
+app.listen("80");
 
 function createPlaylist(body, access_token) {
     let jsonData = {
