@@ -110,9 +110,9 @@ app.get('/callback', function (req, res) {
     }
 });
 
-let portNum = 8080;
+let portNum = 8888;
 console.log('Listening on ' + portNum);
-app.listen(portNum);
+app.listen(8888);
 
 function createPlaylist(body, access_token) {
     let jsonData = {
